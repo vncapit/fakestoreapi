@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <slot />
+    <div class="min-h-[calc(100vh-2*59px)]">
+      <slot />
+    </div>
     <Footer />
   </div>
 </template>

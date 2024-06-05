@@ -4,12 +4,12 @@ import type { NuxtLink } from '#build/components';
   <div>
     <header class="bg-emerald-400 h-14 flex px-3 justify-between items-center">
       <NuxtLink to="/">
-        <h1 class="text-2xl font-semibold">Fake Store API</h1>
+        <div class="text-2xl font-semibold card p-1">Fake Store API</div>
       </NuxtLink>
-      <nav>
-        <NuxtLink to="/category/electronics">Electronics</NuxtLink>
-      </nav>
-      <span>Login</span>
+      <div class="flex gap-4">
+        <nuxt-link to="/about" class="btn">About Us</nuxt-link>
+        <nuxt-link to="login" class="btn">Login</nuxt-link>
+      </div>
     </header>
   </div>
 </template>
