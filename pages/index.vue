@@ -1,33 +1,20 @@
 <template>
   <div>
-    <div>
-      <ul class="flex gap-2 justify-center">
-        <li v-for="category in categories" :key="category">
-          <nuxt-link :to="`/category/${category}`">
-            {{ category }}
-          </nuxt-link>
-        </li>
-      </ul>
-    </div>
+    <CategoryList :categories="categories" />
+    <ProductList :products="allProduct" />
   </div>
 </template>
 
-<script>
-export default {
-  async setup() {
-    let categories = ref([])
-    try {
-      const { data } = await useFetch('https://fakestoreapi.com/products/categories')
-      console.log(data.value)
-      categories = data
-    } catch (error) {
-      console.log('error', error)
-    }
-
-    return {
-      categories
-    }
-  }
+<script setup>
+let categories = ref([]);
+let allProduct = ref([]);
+try {
+  const res1 = await useFetch("https://fakestoreapi.com/products/categories");
+  categories = res1.data;
+  const res2 = await useFetch("https://fakestoreapi.com/products");
+  allProduct = res2.data;
+} catch (error) {
+  console.log("error", error);
 }
 </script>
 
