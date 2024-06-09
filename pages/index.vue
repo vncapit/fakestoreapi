@@ -6,13 +6,13 @@
 </template>
 
 <script setup>
-let categories = ref([]);
+import { useProductStore } from "@/Store/product";
+const productStore = useProductStore();
+const categories = productStore.allCategory;
 let allProduct = ref([]);
 try {
-  const res1 = await useFetch("https://fakestoreapi.com/products/categories");
-  categories = res1.data;
-  const res2 = await useFetch("https://fakestoreapi.com/products");
-  allProduct = res2.data;
+  const res = await useFetch("https://fakestoreapi.com/products");
+  allProduct = res.data;
 } catch (error) {
   console.log("error", error);
 }

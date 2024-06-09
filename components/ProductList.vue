@@ -6,6 +6,7 @@
 
 <script setup>
 const props = defineProps(["products"]);
+console.log("product list ", props.products);
 </script>
 
 <style lang="scss" scoped></style>
