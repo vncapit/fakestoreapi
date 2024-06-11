@@ -2,7 +2,9 @@
   <div class="bg-white w-full p-1 select-none">
     <div class="relative w-full pt-[100%]">
       <div class="absolute top-0 left-0 right-0 bottom-0">
-        <img :src="images[curIndex]" alt="Product_image" class="w-full h-full object-contain" />
+        <transition :name="transitionMode" mode="out-in">
+          <img v-if="showImage" :src="images[curIndex]" alt="Product_image" class="w-full h-full object-contain" />
+        </transition>
       </div>
       <div
         @click="() => handleSideClick('left')"
@@ -50,14 +52,25 @@ const props = defineProps(["images"]);
 const images = props.images;
 const translateX = ref(0);
 const curIndex = ref(0);
+const showImage = ref(true);
+const transitionMode = ref("right-to-left");
+watch(curIndex, (newValue, oldValue) => {
+  console.log(newValue);
+  showImage.value = false;
+  nextTick(() => (showImage.value = true));
+});
+
 const handleClickThumb = (index) => {
   if (curIndex.value === index) {
     return;
   }
   if (curIndex.value < index && index !== 0) {
     // click on the right one
+    transitionMode.value = "right-to-left";
     translateX.value -= 80;
   } else if (index !== 0) {
+    transitionMode.value = "left-to-right";
+
     translateX.value += 80;
   }
   if (index === 0) {
@@ -81,4 +94,32 @@ const handleSideClick = (side) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.left-to-right-leave-active {
+  transition: all 0.5s ease-out;
+}
+.left-to-right-leave-to {
+  transform: translateX(100%);
+}
+
+.left-to-right-enter-active {
+  transition: all 0.5s ease-out;
+}
+.left-to-right-enter-from {
+  transform: translateX(-100%);
+}
+
+.right-to-left-leave-active {
+  transition: all 0.5s ease-out;
+}
+.right-to-left-leave-to {
+  transform: translateX(-100%);
+}
+
+.right-to-left-enter-active {
+  transition: all 0.5s ease-out;
+}
+.right-to-left-enter-from {
+  transform: translateX(100%);
+}
+</style>
