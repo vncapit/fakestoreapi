@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h3 class="first-letter:uppercase font-semibold text-xl">{{ product.category }}</h3>
-    <p class="mt-1">
-      {{ product.description }}
-    </p>
+    <div class="w-full flex items-center gap-3">
+      <AddCartButton :item="product" />
+      <AddWishlistButton :item="product" />
+    </div>
   </div>
 </template>
 

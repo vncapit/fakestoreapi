@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="min-h-[calc(100vh-2*59px)]">
+    <div class="min-h-[calc(100vh-2*59px)] w-full">
       <slot />
     </div>
     <Footer />
@@ -11,11 +11,9 @@
 <script>
 export default {
   setup() {
-
-
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>
