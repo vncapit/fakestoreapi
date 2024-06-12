@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="flex justify-between items-center mt-3 px-2 py-2 font-semibol text-2xl text-white bg-slate-900">
-      <span class="first-letter:uppercase"> {{ category }}</span>
-      <NuxtLink to="/" class="px-2 py-1 rounded-md hover:border-violet-500 border-2 border-slate-900">All Product</NuxtLink>
-    </div>
+    <TitleNav :title="category" />
     <ProductList :products="items" />
   </div>
 </template>

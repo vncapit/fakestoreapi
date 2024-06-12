@@ -2,15 +2,15 @@
   <div>
     <p class="mb-2">You may also like:</p>
     <div class="flex justify-start items-center gap-2">
-      <div v-for="item in sameProducts" :key="item.id" @click="viewProduct(item)"
-        class="w-20 h-20 md:w-32 md:h-32 border border-slate-200 hover:cursor-pointer">
+      <div v-for="item in sameProducts" :key="item.id" @click="viewProduct(item)" class="w-20 h-20 md:w-32 md:h-32 border border-slate-200 hover:cursor-pointer">
         <div class="w-full h-full p-1">
-          <img :src="item.image" alt="you may like" class="object-contain w-full h-full" />
+          <!-- <img :src="item.image" alt="you may like" class="object-contain w-full h-full" /> -->
+          <img :src="11" alt="you may like" class="object-contain w-full h-full" />
         </div>
       </div>
-      <div @click="findMoreProduct"
-        class="w-20 h-20  md:w-32 md:h-32  flex justify-center items-center border border-slate-200 text-sm hover:underline hover:cursor-pointer">
-        Find more?</div>
+      <div @click="findMoreProduct" class="w-20 h-20 md:w-32 md:h-32 flex justify-center items-center border border-slate-200 text-sm hover:underline hover:cursor-pointer">
+        Find more?
+      </div>
     </div>
   </div>
 </template>

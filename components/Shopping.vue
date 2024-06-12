@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div class="w-full flex items-center gap-3">
+  <div class="w-full">
+    <Rating :rating="product.rating" />
+    <div class="flex items-center gap-3 mt-5">
       <AddCartButton :item="product" />
       <AddWishlistButton :item="product" />
     </div>
