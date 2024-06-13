@@ -1,9 +1,8 @@
-import type { NuxtLink } from '#build/components';
 <template>
   <div>
     <header class="bg-slate-300 h-14 flex px-3 justify-between items-center">
       <NuxtLink to="/" class="btn">
-        <div class="text-xl font-semibold px-1">Nuxtjs 3</div>
+        <div class="text-xl font-semibold px-1">Cap's Store</div>
       </NuxtLink>
       <div class="flex gap-4">
         <nuxt-link to="/about" class="btn">About Us</nuxt-link>

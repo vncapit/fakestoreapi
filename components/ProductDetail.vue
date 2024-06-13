@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3 class="first-letter:uppercase font-semibold text-xl">{{ product.category }}</h3>
     <p class="mt-1">
       {{ product.description }}
     </p>

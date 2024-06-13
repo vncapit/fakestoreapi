@@ -5,5 +5,5 @@ export default defineNuxtConfig({
   alias: {
     "@Components": "./components",
     "@Store": "./store",
-  }
+  },
 })
