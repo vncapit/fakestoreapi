@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center py-3">
+  <div class="hidden sm:!flex justify-center items-center py-3 ">
     <CategoryButton v-for="category in categories" :key="category" :category="category" />
   </div>
 </template>

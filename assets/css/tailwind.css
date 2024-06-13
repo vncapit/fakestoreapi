@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 body {
+  @apply relative;
   @apply text-slate-800;
-  @apply font-sans
+  @apply font-sans;
 }
 @layer components {
   .btn {
