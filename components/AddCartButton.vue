@@ -8,16 +8,26 @@
 </template>
 
 <script setup>
-import { CART_ACTION } from "~/enum";
+import { useAuthStore } from "@/store/auth";
 const props = defineProps(["item"]);
 const item = props.item;
-const showCart = ref(true)
+const showCart = ref(true);
+const cart = useCart();
+const authStore = useAuthStore();
+
+const loggedIn = computed(() => {
+  return authStore.loggedIn;
+});
 
 const handleAddCart = () => {
-  showCart.value = false
-  useCart(CART_ACTION.ADD, item);
+  if (!loggedIn.value) {
+    authStore.setForceLogin(true);
+    return;
+  }
+  showCart.value = false;
+  cart.add(item);
   setTimeout(() => {
-    showCart.value = true
+    showCart.value = true;
   }, 200);
 };
 </script>

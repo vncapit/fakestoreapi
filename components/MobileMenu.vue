@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Icon @click="toggleMenu" name="ant-design:menu-unfold-outlined" color="#083344" size="2em" class="hover:cursor-pointer" />
+    <div class="px-2 py-1 bg-slate-800 rounded-md">
+      <Icon @click="toggleMenu" name="ant-design:menu-unfold-outlined" color="#fff" size="1.8em" class="hover:cursor-pointer" />
+    </div>
     <transition name="slide" mode="in-out">
       <div v-if="toggle" class="absolute w-screen h-screen top-0 left-0 z-50 bg-slate-800 bg-opacity-95">
         <div class="p-2">

@@ -1,11 +1,8 @@
 import { useLocalStorage } from "@vueuse/core";
 
-import { CART_ACTION } from "~/enum";
-
 const cart = useLocalStorage("cart", {});
-
-export const useCart = (action, product) => {
-  if (action === CART_ACTION.ADD) {
+export const useCart = () => {
+  const add = (product) => {
     if (cart.value[product.id]) {
       cart.value[product.id].count += 1;
     } else {
@@ -14,15 +11,18 @@ export const useCart = (action, product) => {
         product,
       };
     }
-  }
-  if (action === CART_ACTION.SUB) {
+  };
+  const sub = (product) => {
     if (cart.value[product.id]) {
       cart.value[product.id].count -= 1;
     } else {
       cart.value[product.id] = null;
     }
-  }
-  if (action === CART_ACTION.DEL) {
+  };
+
+  const del = (product) => {
     cart.value[product.id] = null;
-  }
+  };
+
+  return { add, sub, del };
 };

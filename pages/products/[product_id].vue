@@ -2,12 +2,12 @@
   <div>
     <Breadcrumb :menus="menus" class="mb-5 sm:mb-10" />
     <div class="max-w-screen-2xl mx-auto p-2">
-      <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-16">
-        <div class="sm:col-span-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-x-16">
+        <div class="sm:col-span-1 md:col-span-2">
           <ProductTitle :product="product" class="sm:hidden mb-4" />
           <SlideShow :images="images" />
         </div>
-        <div class="sm:col-span-3">
+        <div class="sm:col-span-1 md:col-span-3">
           <ProductTitle :product="product" class="hidden sm:!block" />
           <Shopping :product="product" class="mt-3" />
           <ProductDetail :product="product" class="mt-4" />

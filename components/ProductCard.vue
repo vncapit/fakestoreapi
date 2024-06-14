@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card-root select-none relative shadow-xl w-full overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer hover:scale-[103%] transition-transform px-3 py-3 border bg-white"
+    class="card-root select-none relative shadow-xl w-full overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer sm:hover:scale-[103%] transition-transform px-3 py-3 border bg-white"
   >
     <NuxtLink :to="`/products/${product.id}`">
       <img :src="product.image" :alt="product.category" class="w-full h-56 object-contain" />
@@ -17,7 +17,7 @@
     </NuxtLink>
     <!--Add cardlist wishlist-->
     <div
-      class="w-full h-14 relative md:!absolute my-1 z-10 md:bottom-0 md:translate-y-full transition-transform delay-200 flex justify-between items-center md:px-3 bg-white md:bg-opacity-60 md:bg-slate-900 add-card"
+      class="w-full h-14 relative md:!absolute my-1 z-10 md:bottom-0 md:translate-y-[110%] transition-transform delay-200 flex justify-between items-center md:px-3 bg-white md:bg-opacity-60 md:bg-slate-900 add-card"
     >
       <AddCartButton :item="product" />
       <AddWishlistButton :item="product" />
