@@ -1,12 +1,7 @@
 <template>
   <div
-    class="card-root select-none relative shadow-xl w-60 overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer hover:scale-[103%] transition-transform px-3 py-3 border bg-white"
+    class="card-root select-none relative shadow-xl w-full overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer hover:scale-[103%] transition-transform px-3 py-3 border bg-white"
   >
-    <!--Add cardlist wishlist-->
-    <div class="w-full h-14 absolute z-10 bottom-0 translate-y-full transition-transform delay-200 flex justify-between items-center px-3 add-card">
-      <AddCartButton :item="product" />
-      <AddWishlistButton :item="product" />
-    </div>
     <NuxtLink :to="`/products/${product.id}`">
       <img :src="product.image" :alt="product.category" class="w-full h-56 object-contain" />
       <div class="flex gap-1 flex-col mt-3">
@@ -15,11 +10,18 @@
           <div class="text-sm leading-4 max-h-10 overflow-hidden text-ellipsis font-medium two-lines">{{ product.title }}</div>
           <div class="text-xs leading-3 max-h-16 overflow-hidden text-ellipsis five-lines">{{ product.description }}</div>
         </div>
-        <div class="flex w-full p-1 justify-between">
+        <div class="flex w-full mt-1 mb-2 justify-between">
           <Rating :rating="product.rating" />
         </div>
       </div>
     </NuxtLink>
+    <!--Add cardlist wishlist-->
+    <div
+      class="w-full h-14 relative md:!absolute my-1 z-10 md:bottom-0 md:translate-y-full transition-transform delay-200 flex justify-between items-center md:px-3 bg-white md:bg-opacity-60 md:bg-slate-900 add-card"
+    >
+      <AddCartButton :item="product" />
+      <AddWishlistButton :item="product" />
+    </div>
   </div>
 </template>
 
@@ -42,7 +44,6 @@ const product = props.product;
 }
 
 .add-card {
-  background-color: rgba($color: #000000, $alpha: 0.3);
 }
 
 .card-root {

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Breadcrumb :menus="menus" class="mb-5 sm:mb-20" />
-    <div class="max-w-screen-2xl mx-auto p-2 sm:pt-16">
+    <Breadcrumb :menus="menus" class="mb-5 sm:mb-10" />
+    <div class="max-w-screen-2xl mx-auto p-2">
       <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-16">
         <div class="sm:col-span-2">
           <ProductTitle :product="product" class="sm:hidden mb-4" />
@@ -22,7 +22,7 @@
 const route = useRoute();
 const productId = route.params.product_id;
 const product = ref(null);
-const menus = ref([])
+const menus = ref([]);
 const images = [
   "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
   "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
@@ -41,18 +41,17 @@ try {
 
   // breadcrumbs:
   menus.value.push({
-    name: 'Home',
-    path: '/'
-  })
+    name: "Home",
+    path: "/",
+  });
   menus.value.push({
     name: product.value.category,
-    path: `/products/category/${product.value.category}`
-  })
+    path: `/products/category/${product.value.category}`,
+  });
   menus.value.push({
     name: product.value.title,
-    path: `/products/${product.value.id}`
-  })
-
+    path: `/products/${product.value.id}`,
+  });
 } catch (error) {
   console.error(error);
 }
