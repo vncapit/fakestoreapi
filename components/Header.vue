@@ -2,7 +2,10 @@
   <div>
     <header class="bg-slate-300 h-14 flex px-3 justify-between items-center">
       <div>
-        <NuxtLink to="/" class="hidden sm:!block btn text-[16px] font-medium">Cap's Store</NuxtLink>
+        <NuxtLink to="/"
+          class="hidden sm:!block bg-white text-slate-900 shadow-md px-3 py-[6px] rounded-md text-[16px] font-medium">
+          Cap's Store
+        </NuxtLink>
         <MobileMenu class="sm:hidden" />
       </div>
       <div class="flex gap-4">
