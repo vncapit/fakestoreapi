@@ -1,9 +1,9 @@
 <template>
   <div
-    class="card-root select-none relative shadow-xl w-60 overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer hover:scale-[103%] transition-transform px-3 py-3 border bg-white">
+    class="card-root select-none relative shadow-xl w-60 overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer hover:scale-[103%] transition-transform px-3 py-3 border bg-white"
+  >
     <!--Add cardlist wishlist-->
-    <div
-      class="w-full h-14 absolute z-10 bottom-0 translate-y-full transition-transform delay-200 flex justify-between items-center px-3 add-card">
+    <div class="w-full h-14 absolute z-10 bottom-0 translate-y-full transition-transform delay-200 flex justify-between items-center px-3 add-card">
       <AddCartButton :item="product" />
       <AddWishlistButton :item="product" />
     </div>
@@ -12,8 +12,7 @@
       <div class="flex gap-1 flex-col mt-3">
         <div class="text-center text-xl font-bold mt-1 text-red-600">${{ product.price }}</div>
         <div class="flex flex-col gap-2 h-28 w-full py-1 overflow-ellipsis">
-          <div class="text-sm leading-4 max-h-10 overflow-hidden text-ellipsis font-medium two-lines">{{ product.title }}
-          </div>
+          <div class="text-sm leading-4 max-h-10 overflow-hidden text-ellipsis font-medium two-lines">{{ product.title }}</div>
           <div class="text-xs leading-3 max-h-16 overflow-hidden text-ellipsis five-lines">{{ product.description }}</div>
         </div>
         <div class="flex w-full p-1 justify-between">
