@@ -9,11 +9,12 @@
 
 <script setup>
 import { useAuthStore } from "@/store/auth";
+import { useCartStore } from "~/store/cart";
 const props = defineProps(["item"]);
 const item = props.item;
 const showCart = ref(true);
-const cart = useCart();
 const authStore = useAuthStore();
+const cartStore = useCartStore();
 
 const loggedIn = computed(() => {
   return authStore.loggedIn;
@@ -24,8 +25,10 @@ const handleAddCart = () => {
     authStore.setForceLogin(true);
     return;
   }
+
+  cartStore.addOneToCart(item);
+
   showCart.value = false;
-  cart.add(item);
   setTimeout(() => {
     showCart.value = true;
   }, 200);

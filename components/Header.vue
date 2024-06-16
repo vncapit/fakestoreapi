@@ -7,6 +7,7 @@
       </div>
       <div class="flex gap-4">
         <nuxt-link to="/" class="btn hidden sm:!block">About Us</nuxt-link>
+        <CartShortcut />
         <Login />
       </div>
     </header>

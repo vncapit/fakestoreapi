@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-const auth = useAuth();
+const auth = useToken();
 export const useAuthStore = defineStore({
   id: "auth-store",
   state: () => {
@@ -25,18 +25,19 @@ export const useAuthStore = defineStore({
     },
     async setUserInfo() {
       try {
-        if (!auth.get()) {
+        if (!auth.getToken()) {
           throw new Error("Unauthorize");
         }
         const { data } = await useFetch("https://fakestoreapi.com/users/4");
         this.userInfoState = data.value;
+        this.setLoggedIn(true);
       } catch (error) {
         console.error(error);
       }
     },
     logout(router) {
       this.loggedInState = false;
-      auth.set(undefined);
+      auth.setToken(undefined);
       router.push("/");
     },
   },

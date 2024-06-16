@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div v-if="showLogIn || showLogOut" @click="toggleLoginLogout" class="absolute top-0 left-0 bg-opacity-0 bg-slate-300 w-screen h-screen z-40 flex justify-center items-center">
+    <div v-if="showLogIn || showLogOut" @click="toggleLoginLogout" class="fixed top-0 left-0 bg-opacity-0 bg-slate-300 w-full h-full z-40 flex justify-center items-center">
       <div v-if="showLogIn" @click.stop class="w-[300px] h-[250px] sm:w-[350px] px-4 py-10 border border-slate-300 bg-white rounded-md shadow-md">
         <div :class="['flex', 'justify-center', 'items-center', 'p-1', 'mb-3', 'gap-2', 'border', 'rounded-md', 'border-slate-300', { 'invalid-border': usernameInvl }]">
           <Icon name="mdi:user" color="#000" size="2em" />
@@ -38,7 +38,7 @@
 import { useAuthStore } from "@/store/auth";
 const router = useRouter();
 const authStore = useAuthStore();
-const auth = useAuth();
+const auth = useToken();
 const showLogIn = ref(false);
 const showLogOut = ref(false);
 const loading = ref(false);
@@ -97,7 +97,7 @@ const handleLogin = async () => {
         passwordInvl.value = true;
       } else {
         const token = data.value.token;
-        auth.set(token);
+        auth.setToken(token);
         authStore.setLoggedIn(true);
         await authStore.setUserInfo();
         showLogIn.value = false;
