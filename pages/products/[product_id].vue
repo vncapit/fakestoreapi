@@ -39,6 +39,10 @@ try {
   product.value = data.value;
   images.unshift(product.value.image);
 
+  useHead({
+    title: `Cap's Shop - ${product.value.title} `,
+  });
+
   // breadcrumbs:
   menus.value.push({
     name: "Home",

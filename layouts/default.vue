@@ -8,12 +8,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
+<script setup>
+useHead({
+  title: "Cap's Shop - Fake API",
+  meta: [
+    {
+      name: "Cap's Shop",
+      content: "Using Fake API",
+    },
+  ],
+});
 </script>
 
 <style lang="scss" scoped></style>
