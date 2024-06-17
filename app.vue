@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { useProductStore } from "@/Store/product";
+import { useProductStore } from "~/store/product";
 import { useAuthStore } from "./store/auth";
 import { useCartStore } from "./store/cart";
 try {
