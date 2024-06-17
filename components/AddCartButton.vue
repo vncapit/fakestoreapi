@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { useAuthStore } from "@/store/auth";
+import { useAuthStore } from "~/store/auth";
 import { useCartStore } from "~/store/cart";
 const props = defineProps(["item"]);
 const item = props.item;

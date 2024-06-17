@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { useProductStore } from "~/Store/product";
+import { useProductStore } from "~/store/product";
 const toggle = ref(false);
 const product = useProductStore();
 const allCategory = product.allCategory;

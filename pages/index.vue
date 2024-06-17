@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { useProductStore } from "@/Store/product";
+import { useProductStore } from "~/store/product";
 const productStore = useProductStore();
 const categories = productStore.allCategory;
 let allProduct = ref([]);
