@@ -1,20 +1,20 @@
 <template>
-  <div class="w-full py-3 px-5 flex flex-col sm:flex-row justify-center items-stretch gap-3 bg-white border border-slate-100 rounded-md shadow-md">
-    <div class="w-52 h-52 sm:w-20 sm:h-20 self-center">
+  <div class="w-full py-3 px-5 flex flex-col sm:flex-row justify-center items-stretch gap-3 bg-white dark:bg-cyan-950 border border-slate-100 rounded-md shadow-md">
+    <div class="w-52 h-52 sm:w-20 sm:h-20 self-center bg-white p-1 rounded-md">
       <img :src="item.product.image" class="w-full h-full object-contain" alt="" />
     </div>
     <div class="flex-1 flex gap-2 flex-col justify-between">
       <div class="font-medium">{{ item.product.title }}</div>
       <div class="flex justify-between sm:justify-start gap-3 items-center">
         <div class="flex items-center border-0 border-slate-100 rounded-sm">
-          <div @click="handleDelFromCart" class="p-[2px] btn hover:cursor-pointer active:opacity-70 select-none mr-1 bg-slate-800 rounded-sm">
+          <div @click="handleDelFromCart" class="p-[2px] btn hover:cursor-pointer active:opacity-70 select-none mr-1 rounded-sm">
             <Icon name="mingcute:delete-2-line" size="1.5em" color="#f1f1f1" />
           </div>
-          <div @click="handleRemoveOneFromCart" class="p-[2px] btn hover:cursor-pointer active:opacity-70 select-none bg-slate-800 rounded-sm">
+          <div @click="handleRemoveOneFromCart" class="p-[2px] btn hover:cursor-pointer active:opacity-70 select-none rounded-sm">
             <Icon name="ic:baseline-minus" size="1.5em" color="#f1f1f1" />
           </div>
-          <input :value="item.count" type="text" class="max-w-11 px-2 focus:outline-none" />
-          <div @click="handleAddOneToCart" class="p-[2px] btn hover:cursor-pointer active:opacity-70 select-none bg-slate-800 rounded-sm">
+          <input :value="item.count" type="text" class="max-w-11 px-2 focus:outline-none dark:text-cyan-950" />
+          <div @click="handleAddOneToCart" class="p-[2px] btn hover:cursor-pointer active:opacity-70 select-none rounded-sm">
             <Icon name="ic:baseline-plus" size="1.5em" color="#f1f1f1" />
           </div>
         </div>
@@ -31,6 +31,7 @@
 </template>
 
 <script setup>
+import { usePrecision } from "@vueuse/math";
 const props = defineProps(["item"]);
 const item = props.item;
 
@@ -38,7 +39,7 @@ import { useCartStore } from "~/store/cart";
 const cartStore = useCartStore();
 
 const totalPrice = computed(() => {
-  return item.count * item.product.price;
+  return usePrecision(item.count * item.product.price, 2);
 });
 
 const handleDelFromCart = () => {

@@ -8,7 +8,7 @@
         </div>
         <div v-if="showLogOut" class="absolute top-full right-0 z-50">
           <div class="mr-5 ml-auto h-0 w-0 border-l-4 border-r-4 border-b-8 border-b-white border-l-transparent border-r-transparent"></div>
-          <div class="bg-white px-2 py-1 rounded-sm shadow-md">
+          <div class="bg-white dark:bg-cyan-950 px-2 py-1 rounded-sm shadow-md">
             <button @click.stop="handleLogout">Logout</button>
           </div>
         </div>
@@ -18,12 +18,20 @@
       <div v-if="showLogIn" @click.stop class="w-[300px] h-[250px] sm:w-[350px] px-4 py-10 border border-slate-300 bg-white rounded-md shadow-md">
         <div :class="['flex', 'justify-center', 'items-center', 'p-1', 'mb-3', 'gap-2', 'border', 'rounded-md', 'border-slate-300', { 'invalid-border': usernameInvl }]">
           <Icon name="mdi:user" color="#000" size="2em" />
-          <input @input="handleValidate" v-model="username" type="text" placeholder="Username: donero" class="w-full h-6" style="outline: none" />
+          <input @input="handleValidate" v-model="username" type="text" placeholder="Username: donero" class="w-full h-6 dark:text-slate-900" style="outline: none" />
         </div>
 
         <div :class="['flex', 'justify-center', 'items-center', 'p-1', 'mb-3', 'gap-2', 'border', 'rounded-md', 'border-slate-300', { 'invalid-border': passwordInvl }]">
           <Icon name="mdi:password" color="#000" size="2em" />
-          <input @input="handleValidate" v-model="password" type="password" placeholder="Password: ewedon" class="w-full h-6" style="outline: none" />
+          <input
+            @input="handleValidate"
+            @keydown="handleKeyDown"
+            v-model="password"
+            type="password"
+            placeholder="Password: ewedon"
+            class="w-full h-6 dark:text-slate-900"
+            style="outline: none"
+          />
         </div>
         <button @click="handleLogin" class="w-full h-10 rounded-md mt-4 bg-slate-800 text-slate-50">
           <span style="margin-right: 10px">Login</span>
@@ -78,6 +86,12 @@ const toggleLoginLogout = () => {
 const handleLogout = () => {
   showLogOut.value = false;
   authStore.logout(router);
+};
+
+const handleKeyDown = (key) => {
+  if (key.key === "Enter") {
+    handleLogin();
+  }
 };
 
 const handleLogin = async () => {

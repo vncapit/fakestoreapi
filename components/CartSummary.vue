@@ -1,5 +1,5 @@
 <template>
-  <div class="py-3 px-5 flex flex-col justify-center text-center gap-2 border bg-white border-slate-100 rounded-md shadow-md">
+  <div class="my-2 py-3 px-5 flex flex-col justify-center text-center gap-2 border bg-white dark:bg-cyan-950 border-slate-100 rounded-md shadow-md">
     <div class="flex justify-between">
       <div class="font-semibold text-red-500">Total: ${{ total }}</div>
       <div>
@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+import { usePrecision } from "@vueuse/math";
 const props = defineProps(["cart"]);
 const cart = props.cart;
 const total = computed(() => {

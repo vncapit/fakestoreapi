@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white w-full select-none">
+  <div class="bg-white py-2 w-full select-none">
     <div class="relative w-full pt-[100%]">
       <div class="absolute top-0 left-0 right-0 bottom-0 overflow-hidden">
         <transition :name="transitionMode" mode="out-in">

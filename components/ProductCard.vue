@@ -1,9 +1,11 @@
 <template>
   <div
-    class="card-root select-none relative shadow-xl w-full overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer sm:hover:scale-[103%] transition-transform px-3 py-3 border bg-white"
+    class="card-root select-none relative shadow-xl w-full overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer sm:hover:scale-[103%] transition-transform px-3 py-3 border bg-white dark:bg-cyan-950"
   >
     <NuxtLink :to="`/products/${product.id}`">
-      <img :src="product.image" :alt="product.category" class="w-full h-56 object-contain" />
+      <div class="p-2 bg-white rounded-md">
+        <img :src="product.image" :alt="product.category" class="w-full h-56 object-contain" />
+      </div>
       <div class="flex gap-1 flex-col mt-3">
         <div class="text-center text-xl font-bold mt-1 text-red-600">${{ product.price }}</div>
         <div class="flex flex-col gap-2 h-28 w-full py-1 overflow-ellipsis">
@@ -17,7 +19,7 @@
     </NuxtLink>
     <!--Add cardlist wishlist-->
     <div
-      class="w-full h-14 relative md:!absolute my-1 z-10 md:bottom-0 md:translate-y-[110%] transition-transform delay-200 flex justify-between items-center md:px-3 bg-white md:bg-opacity-60 md:bg-slate-900 add-card"
+      class="w-full h-14 relative md:!absolute my-1 z-10 md:bottom-0 md:translate-y-[110%] transition-transform flex justify-between items-center md:px-3 bg-white dark:bg-cyan-950 md:bg-opacity-60 md:bg-slate-900 add-card"
     >
       <AddCartButton :item="product" />
       <AddWishlistButton :item="product" />
